@@ -103,6 +103,8 @@
                       ;; the user did not trigger the event via one of the
                       ;; keys we should bypass
                       (when (and (processable-url? uri)
+                                 ;; Do nothing when default was prevented
+                                 (not (.-defaultPrevented e)
                                  ;; Bypass dispatch if any of these keys
                                  (not (.-altKey e))
                                  (not (.-ctrlKey e))
